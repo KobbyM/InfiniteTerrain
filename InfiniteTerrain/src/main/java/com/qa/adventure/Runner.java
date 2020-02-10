@@ -1,5 +1,4 @@
 package com.qa.adventure;
-import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -25,8 +24,8 @@ public class Runner {
 
 		
 		//RANDOM LOCATION GENERATION
-		rand.nextInt(locationX);
-		rand.nextInt(locationY);
+		locationX = rand.nextInt(locationX);
+		locationY = rand.nextInt(locationY);
 		
 		Walking: //LABEL
 		while (swamp == 100) {
@@ -37,16 +36,18 @@ public class Runner {
 			if ((locationX == treasureX) && (locationY == treasureY)) {
 				System.out.println("You see a box sitting on the plain. It’s filled with treasure! You win! The end.");
 				break;
+				
 			// NORTH MOVEMENT
 			} else if (direction.contains("north")) {
-				distance = (int)Math.sqrt(
+				distance = (int) Math.sqrt(
 						((locationX - treasureX) * (locationX - treasureX)) + 
 						((locationY - treasureY) * (locationY - treasureY))
 						) ;
-				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
+				System.out.println("The dial reads " + "'" + distance + "'" + "m"); 
 				locationY++;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
+				
 			// SOUTH MOVEMENT
 			} else if (direction.contains("south")) {	
 				distance = (int)Math.sqrt(
@@ -57,23 +58,25 @@ public class Runner {
 				locationY--;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
+				
 			// EAST MOVEMENT
 			} else if (direction.contains("east")) {
 				distance = (int)Math.sqrt(
 						((locationX - treasureX) * (locationX - treasureX)) + 
 						((locationY - treasureY) * (locationY - treasureY))
 						) ;
-				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
+				System.out.println("The dial reads " + "'" + distance + "'" + "m"); 
 				locationX++;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
+				
 			// WEST MOVEMENT
 			} else if (direction.contains("west")) {
 				distance = (int)Math.sqrt(
 						((locationX - treasureX) * (locationX - treasureX)) + 
 						((locationY - treasureY) * (locationY - treasureY))
 						) ;
-				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
+				System.out.println("The dial reads " + "'" + distance + "'" + "m"); 
 				locationX--;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
