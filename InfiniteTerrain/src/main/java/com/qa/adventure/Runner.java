@@ -1,4 +1,5 @@
 package com.qa.adventure;
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Runner {
 		int locationX = 4, locationY = 4; //MAXIMUM LOCATION YOU CAN BE GENERERATED --you are able to go past this value
 		int treasureX = 2, treasureY = 3;
 		int swamp = 100;
-
+		int distance = 0;
 		
 		System.out.println("Grey foggy clouds float oppressively close to you, \r\n" + 
 				"reflected in the murky grey water which reaches up your shins.\r\n" + 
@@ -38,25 +39,41 @@ public class Runner {
 				break;
 			// NORTH MOVEMENT
 			} else if (direction.contains("north")) {
-				System.out.println("The dial reads " + "'" + (locationX - treasureX) + "," + (locationY - treasureY) + "'" + "m"); 
+				distance = (int)Math.sqrt(
+						((locationX - treasureX) * (locationX - treasureX)) + 
+						((locationY - treasureY) * (locationY - treasureY))
+						) ;
+				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
 				locationY++;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
 			// SOUTH MOVEMENT
 			} else if (direction.contains("south")) {	
-				System.out.println("The dial reads " + "'" + (locationX - treasureX) + "," + (locationY - treasureY) + "'" + "m"); 
+				distance = (int)Math.sqrt(
+						((locationX - treasureX) * (locationX - treasureX)) + 
+						((locationY - treasureY) * (locationY - treasureY))
+						) ;
+				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
 				locationY--;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
 			// EAST MOVEMENT
 			} else if (direction.contains("east")) {
-				System.out.println("The dial reads " + "'" + (locationX - treasureX) + "," + (locationY - treasureY) + "'" + "m"); 
+				distance = (int)Math.sqrt(
+						((locationX - treasureX) * (locationX - treasureX)) + 
+						((locationY - treasureY) * (locationY - treasureY))
+						) ;
+				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
 				locationX++;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
 			// WEST MOVEMENT
 			} else if (direction.contains("west")) {
-				System.out.println("The dial reads " + "'" + (locationX - treasureX) + "," + (locationY - treasureY) + "'" + "m"); 
+				distance = (int)Math.sqrt(
+						((locationX - treasureX) * (locationX - treasureX)) + 
+						((locationY - treasureY) * (locationY - treasureY))
+						) ;
+				System.out.println("The dial reads " + "'" + Math.round(distance) + "'" + "m"); 
 				locationX--;
 				System.out.println("Current location is " + locationX + "," + locationY);
 				continue Walking;
